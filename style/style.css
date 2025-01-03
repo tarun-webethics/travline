@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+@layer utilities {
+   html {
+      font-family: 'Poppins', sans-serif;
+   }
+ }
+
+ *{
+   font-family: 'Poppins', sans-serif;
+ }
+
+ /* owl carousel customization */
+ .owl-nav button {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 50% !important;
+  background-color: #e4e4e4 !important;
+  transition: .4s ease-in-out !important;
+}
+.owl-nav button:hover{
+  background-color: #FF8E50 !important;
+  transition: .4s ease-in-out !important;
+}
+.owl-nav span {
+  height: 63px;
+  color: #fff;
+  font-size: 41px;
+}
+.owl-nav .owl-prev {
+  position: absolute;
+  top: -10%;
+  right: 5%;
+}
+.owl-nav .owl-next {
+  position: absolute;
+  top: -10%;
+  right: 0%;
+}
+.owl-dots {
+  display: none;
+}
+
+@media only screen and (max-width: 480px) {
+  .owl-nav {
+    display: none;
+  }
+  .owl-dots {
+    display: block;
+  }
+  .owl-theme .owl-dots .owl-dot.active span{
+    background-color: #FF8E50 !important;
+  }
+}

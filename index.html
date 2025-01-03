@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Travline</title>
+   <script src="https://cdn.tailwindcss.com"></script>
+   <script src="./style/tailwind.config.js"></script>
+   <script src="./js/custom.js"></script>
+   <link rel="stylesheet" href="./style/style.css" />
+   <link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+   <link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" />
+</head>
+
+<body>
+   <!-- navbar -->
+   <div class="container">
+      <nav class="relative px-0 md:px-4 py-4 flex justify-between items-center bg-white">
+         <a class="text-3xl font-bold leading-none" href="#">
+            <img src="./images/logo.png" alt="logo" width="124">
+         </a>
+         <div class="lg:hidden">
+            <button class="navbar-burger flex items-center text-blue-600 p-3">
+               <svg class="block h-4 w-4 fill-current" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                  <title>Mobile menu</title>
+                  <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"></path>
+               </svg>
+            </button>
+         </div>
+         <ul
+            class="hidden absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2 lg:flex lg:mx-auto lg:flex lg:items-center lg:w-auto lg:space-x-6">
+            <li><a class="text-sm text-gray-400 hover:text-gray-500" href="#">Home</a></li>
+            <li class="text-gray-300">
+               <img src="./images/three-dot.svg" alt="three_dot-seperator" width="16">
+            </li>
+            <li><a class="text-sm text-blue-600 font-bold" href="#">Destinations</a></li>
+            <li class="text-gray-300">
+               <img src="./images/three-dot.svg" alt="three_dot-seperator" width="16">
+            </li>
+            <li><a class="text-sm text-gray-400 hover:text-gray-500" href="#">Packages</a></li>
+            <li class="text-gray-300">
+               <img src="./images/three-dot.svg" alt="three_dot-seperator" width="16">
+            </li>
+            <li><a class="text-sm text-gray-400 hover:text-gray-500" href="#">About Us</a></li>
+            <li class="text-gray-300">
+               <img src="./images/three-dot.svg" alt="three_dot-seperator" width="16">
+            </li>
+            <li><a class="text-sm text-gray-400 hover:text-gray-500" href="#">Contact</a></li>
+         </ul>
+         <a class="hidden lg:inline-block lg:ml-auto py-2 px-6 bg-orange hover:bg-orange-900 text-sm text-white font-light  rounded-lg transition duration-200"
+            href="#">Register</a>
+         <!-- <a class="hidden lg:inline-block py-2 px-6 bg-blue-500 hover:bg-blue-600 text-sm text-white font-bold rounded-xl transition duration-200"
+            href="#">Sign up</a> -->
+      </nav>
+      <div class="navbar-menu relative z-50 hidden">
+         <div class="navbar-backdrop fixed inset-0 bg-gray-800 opacity-25"></div>
+         <nav
+            class="fixed top-0 left-0 bottom-0 flex flex-col w-5/6 max-w-sm py-6 px-6 bg-white border-r overflow-y-auto">
+            <div class="flex items-center mb-8">
+               <a class="mr-auto text-3xl font-bold leading-none" href="#">
+                  <svg class="h-12" alt="logo" viewBox="0 0 10240 10240">
+                     <path xmlns="http://www.w3.org/2000/svg"
+                        d="M8284 9162 c-2 -207 -55 -427 -161 -667 -147 -333 -404 -644 -733 -886 -81 -59 -247 -169 -256 -169 -3 0 -18 -9 -34 -20 -26 -19 -344 -180 -354 -180 -3 0 -29 -11 -58 -24 -227 -101 -642 -225 -973 -290 -125 -25 -397 -70 -480 -80 -22 -3 -76 -9 -120 -15 -100 -13 -142 -17 -357 -36 -29 -2 -98 -7 -153 -10 -267 -15 -436 -28 -525 -40 -14 -2 -45 -7 -70 -10 -59 -8 -99 -14 -130 -20 -14 -3 -41 -7 -60 -11 -19 -3 -39 -7 -45 -8 -5 -2 -28 -6 -50 -10 -234 -45 -617 -165 -822 -257 -23 -10 -45 -19 -48 -19 -7 0 -284 -138 -340 -170 -631 -355 -1107 -842 -1402 -1432 -159 -320 -251 -633 -308 -1056 -26 -190 -27 -635 -1 -832 3 -19 7 -59 10 -89 4 -30 11 -84 17 -120 6 -36 12 -77 14 -91 7 -43 33 -174 39 -190 3 -8 7 -28 9 -45 6 -35 52 -221 72 -285 7 -25 23 -79 35 -120 29 -99 118 -283 189 -389 67 -103 203 -244 286 -298 75 -49 178 -103 196 -103 16 0 27 16 77 110 124 231 304 529 485 800 82 124 153 227 157 230 3 3 28 36 54 74 116 167 384 497 546 671 148 160 448 450 560 542 14 12 54 45 90 75 88 73 219 172 313 238 42 29 77 57 77 62 0 5 -13 34 -29 66 -69 137 -149 405 -181 602 -7 41 -14 82 -15 90 -1 8 -6 46 -10 83 -3 37 -8 77 -10 88 -2 11 -7 65 -11 122 -3 56 -8 104 -9 107 -2 3 0 12 5 19 6 10 10 8 15 -10 10 -34 167 -346 228 -454 118 -210 319 -515 340 -515 4 0 40 18 80 40 230 128 521 255 787 343 118 40 336 102 395 113 28 5 53 11 105 23 25 5 59 12 75 15 17 3 41 8 55 11 34 7 274 43 335 50 152 18 372 29 565 29 194 0 481 -11 489 -19 2 -3 -3 -6 -12 -6 -9 -1 -20 -2 -24 -3 -33 -8 -73 -16 -98 -21 -61 -10 -264 -56 -390 -90 -649 -170 -1243 -437 -1770 -794 -60 -41 -121 -82 -134 -93 l-24 -18 124 -59 c109 -52 282 -116 404 -149 92 -26 192 -51 220 -55 17 -3 64 -12 105 -21 71 -14 151 -28 230 -41 19 -3 46 -7 60 -10 14 -2 45 -7 70 -10 25 -4 56 -8 70 -10 14 -2 53 -7 88 -10 35 -4 71 -8 81 -10 10 -2 51 -6 92 -9 101 -9 141 -14 147 -21 3 -3 -15 -5 -39 -6 -24 0 -52 -2 -62 -4 -21 -4 -139 -12 -307 -22 -242 -14 -700 -7 -880 13 -41 4 -187 27 -250 39 -125 23 -274 68 -373 111 -43 19 -81 34 -86 34 -4 0 -16 -8 -27 -17 -10 -10 -37 -33 -59 -52 -166 -141 -422 -395 -592 -586 -228 -257 -536 -672 -688 -925 -21 -36 -43 -66 -47 -68 -4 -2 -8 -7 -8 -11 0 -5 -24 -48 -54 -97 -156 -261 -493 -915 -480 -935 2 -3 47 -21 101 -38 54 -18 107 -36 118 -41 58 -25 458 -138 640 -181 118 -27 126 -29 155 -35 14 -2 45 -9 70 -14 66 -15 137 -28 300 -55 37 -7 248 -33 305 -39 28 -3 84 -9 125 -13 163 -16 792 -8 913 12 12 2 58 9 102 15 248 35 423 76 665 157 58 19 134 46 170 60 86 33 344 156 348 166 2 4 8 7 13 7 14 0 205 116 303 184 180 126 287 216 466 396 282 281 511 593 775 1055 43 75 178 347 225 455 100 227 236 602 286 790 59 220 95 364 120 485 6 28 45 245 50 275 2 14 7 41 10 60 3 19 8 49 10 65 2 17 6 46 9 65 15 100 35 262 40 335 3 39 8 89 10 112 22 225 33 803 21 1043 -3 41 -7 129 -11 195 -3 66 -8 136 -10 155 -2 19 -6 76 -10 125 -3 50 -8 101 -10 115 -2 14 -6 57 -10 95 -7 72 -12 113 -20 175 -2 19 -7 55 -10 80 -6 46 -43 295 -51 340 -2 14 -9 54 -15 90 -5 36 -16 97 -24 135 -8 39 -17 84 -20 100 -12 68 -18 97 -50 248 -19 87 -47 204 -61 260 -14 56 -27 109 -29 117 -30 147 -232 810 -253 832 -4 4 -7 -23 -8 -60z">
+                     </path>
+                  </svg>
+               </a>
+               <button class="navbar-close">
+                  <svg class="h-6 w-6 text-gray-400 cursor-pointer hover:text-gray-500"
+                     xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12">
+                     </path>
+                  </svg>
+               </button>
+            </div>
+            <div>
+               <ul>
+                  <li class="mb-1">
+                     <a class="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded"
+                        href="#">Home</a>
+                  </li>
+                  <li class="mb-1">
+                     <a class="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded"
+                        href="#">Destinations</a>
+                  </li>
+                  <li class="mb-1">
+                     <a class="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded"
+                        href="#">Packages</a>
+                  </li>
+                  <li class="mb-1">
+                     <a class="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded"
+                        href="#">About Us</a>
+                  </li>
+                  <li class="mb-1">
+                     <a class="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded"
+                        href="#">Contact</a>
+                  </li>
+               </ul>
+            </div>
+            <div class="mt-auto">
+               <div class="pt-6">
+                  <a class="block px-4 py-3 mb-3 leading-loose text-xs text-center font-semibold leading-none bg-gray-50 hover:bg-gray-100 rounded-xl"
+                     href="#">Sign in</a>
+                  <a class="block px-4 py-3 mb-2 leading-loose text-xs text-center text-white font-semibold bg-blue-600 hover:bg-blue-700  rounded-xl"
+                     href="#">Sign Up</a>
+               </div>
+               <p class="my-4 text-xs text-center text-gray-400">
+                  <span>Copyright © 2021</span>
+               </p>
+            </div>
+         </nav>
+      </div>
+   </div>
+
+   <img class="absolute top-0 right-0 -z-10" src="./images/hero-bg.png" alt="background-pattern">
+
+   <!-- hero section -->
+   <div class="container mt-8 md:mt-0">
+      <div class="grid grid-cols-1 gap-4 md:grid-cols-2 relative min-h-[800px]">
+         <img class="absolute z-[-10] top-0 left-0 md:top-16 md:left-48" src="./images/plane.png" alt="plane-image">
+         <div class="flex items-center">
+            <div>
+               <h6 class="text-xl md:text-3xl font-semibold text-blue">Book Now</h6>
+               <h2
+                  class="text-5xl md:text-6xl font-bold font-merriweather text-grey leading-[60px] md:leading-[87px] mt-8 md:mt-10">
+                  Let’s
+                  Enjoy Your
+                  <br>
+                  Trip
+                  With
+                  <span class="text-blue text-5xl md:text-6xl font-bold font-merriweather">Travline</span>
+               </h2>
+               <p class="text-lightgrey text-sm md:text-base mt-3 md:mt-6">forget your busy life now, don't wait until
+                  tomorrow
+                  plan
+                  your
+                  vacation, enjoy your new adventure with your friends or family
+               </p>
+               <div class="mt-12 flex items-center justify-start">
+                  <button
+                     class="lg:inline-block lg:mr-3 py-3 px-7 bg-orange hover:bg-orange-900 text-sm text-white font-light  rounded-lg transition duration-200">Explore
+                     Now</button>
+
+                  <button class="flex items-center ms-4"><svg width="42" height="42" viewBox="0 0 56 56" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="28" cy="28" r="27.5" stroke="#FF8E50" />
+                        <path
+                           d="M37 26.2679C38.3333 27.0377 38.3333 28.9623 37 29.7321L25 36.6603C23.6667 37.4301 22 36.4678 22 34.9282L22 21.0718C22 19.5322 23.6667 18.5699 25 19.3397L37 26.2679Z"
+                           fill="#FF8E50" />
+                     </svg>
+                     <span class="ms-2 font-semibold">Watch Videos</span></button>
+               </div>
+
+            </div>
+         </div>
+         <div class="flex items-center mt-4 md:mt-0">
+            <img class="w-full" src="./images/hero-sec.png" alt="hero-section-image">
+         </div>
+      </div>
+   </div>
+
+   <!-- below hero section -->
+   <div class="container">
+      <div class="w-[82%] mx-auto">
+         <div
+            class="grid grid-cols-1 md:grid-cols-4 p-5 md:p-10 rounded-3xl shadow-[0_10px_45px_-15px_rgba(0,0,0,0.3)] shadow-orange gap-4">
+            <div>
+               <h6 class="text-lg md:text-xl text-grey font-semibold flex items-center">
+                  <svg class="me-1" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                     xmlns="http://www.w3.org/2000/svg">
+                     <path fill-rule="evenodd" clip-rule="evenodd"
+                        d="M3.5 10.3178C3.5 5.71789 7.34388 2 11.9934 2C16.6561 2 20.5 5.71789 20.5 10.3178C20.5 12.6357 19.657 14.7876 18.2695 16.6116C16.7388 18.6235 14.8522 20.3765 12.7285 21.7524C12.2425 22.0704 11.8039 22.0944 11.2704 21.7524C9.13474 20.3765 7.24809 18.6235 5.7305 16.6116C4.34198 14.7876 3.5 12.6357 3.5 10.3178ZM9.19423 10.5768C9.19423 12.1177 10.4517 13.3297 11.9934 13.3297C13.5362 13.3297 14.8058 12.1177 14.8058 10.5768C14.8058 9.0478 13.5362 7.77683 11.9934 7.77683C10.4517 7.77683 9.19423 9.0478 9.19423 10.5768Z"
+                        fill="#FF8E50" />
+                  </svg>
+                  Location
+               </h6>
+               <p class="text-sm text-lightgrey ms-7 mt-0 md:mt-1">Where are you going ?</p>
+            </div>
+
+            <div>
+               <h6 class="text-lg md:text-xl text-grey font-semibold flex items-center">
+                  <svg class="me-1" width="25" height="24" viewBox="0 0 25 24" fill="none"
+                     xmlns="http://www.w3.org/2000/svg">
+                     <path fill-rule="evenodd" clip-rule="evenodd"
+                        d="M16.9109 2.76862L16.9119 3.51824C19.6665 3.73414 21.4862 5.6112 21.4891 8.48975L21.5 16.9155C21.5039 20.054 19.5322 21.985 16.3718 21.99L8.65189 22C5.5112 22.004 3.51482 20.027 3.51087 16.8796L3.50001 8.55272C3.49606 5.65517 5.25153 3.78311 8.00618 3.53024L8.00519 2.78061C8.0042 2.34083 8.33002 2.01 8.76445 2.01C9.19887 2.009 9.52469 2.33883 9.52568 2.77861L9.52666 3.47826L15.3914 3.47027L15.3904 2.77062C15.3894 2.33084 15.7152 2.001 16.1497 2C16.5742 1.99901 16.9099 2.32884 16.9109 2.76862ZM5.02149 8.86157L19.9696 8.84158V8.49175C19.9272 6.34283 18.849 5.21539 16.9139 5.04748L16.9148 5.81709C16.9148 6.24688 16.5801 6.58771 16.1556 6.58771C15.7212 6.58871 15.3944 6.24888 15.3944 5.81909L15.3934 5.0095L9.52864 5.01749L9.52962 5.82609C9.52962 6.25687 9.20479 6.5967 8.77037 6.5967C8.33595 6.5977 8.00914 6.25887 8.00914 5.82809L8.00815 5.05847C6.08286 5.25138 5.01754 6.38281 5.0205 8.55072L5.02149 8.86157ZM15.7399 13.4043V13.4153C15.7498 13.8751 16.125 14.2239 16.5801 14.2139C17.0244 14.2029 17.3789 13.8221 17.369 13.3623C17.3483 12.9225 16.9918 12.5637 16.5485 12.5647C16.0944 12.5747 15.7389 12.9445 15.7399 13.4043ZM16.5554 17.892C16.1013 17.882 15.735 17.5032 15.734 17.0435C15.7241 16.5837 16.0884 16.2029 16.5426 16.1919H16.5525C17.0165 16.1919 17.3927 16.5707 17.3927 17.0405C17.3937 17.5102 17.0185 17.891 16.5554 17.892ZM11.6721 13.4203C11.6919 13.8801 12.068 14.2389 12.5222 14.2189C12.9665 14.1979 13.321 13.8181 13.3012 13.3583C13.2904 12.9085 12.925 12.5587 12.4807 12.5597C12.0266 12.5797 11.6711 12.9605 11.6721 13.4203ZM12.5262 17.8471C12.072 17.8671 11.6968 17.5082 11.6761 17.0485C11.6761 16.5887 12.0305 16.2089 12.4847 16.1879C12.929 16.1869 13.2953 16.5367 13.3052 16.9855C13.3259 17.4463 12.9705 17.8261 12.5262 17.8471ZM7.60434 13.4553C7.62408 13.915 8.00025 14.2749 8.45442 14.2539C8.89872 14.2339 9.25317 13.8531 9.23244 13.3933C9.22257 12.9435 8.85725 12.5937 8.41197 12.5947C7.9578 12.6147 7.60335 12.9955 7.60434 13.4553ZM8.45837 17.8521C8.0042 17.8731 7.62902 17.5132 7.60828 17.0535C7.6073 16.5937 7.96274 16.2129 8.41691 16.1929C8.8612 16.1919 9.2275 16.5417 9.23738 16.9915C9.25811 17.4513 8.90366 17.8321 8.45837 17.8521Z"
+                        fill="#FF8E50" />
+                  </svg>
+                  Date
+               </h6>
+               <p class="text-sm text-lightgrey ms-7 mt-0 md:mt-1">Select Date</p>
+            </div>
+
+            <div>
+               <h6 class="text-lg md:text-xl text-grey font-semibold flex items-center">
+                  <svg class="me-1" width="24" height="25" viewBox="0 0 24 25" fill="none"
+                     xmlns="http://www.w3.org/2000/svg">
+                     <path
+                        d="M13.2004 12.5C13.8369 12.5 14.4474 12.7529 14.8974 13.203C15.3475 13.6531 15.6004 14.2635 15.6004 14.9V16.7C15.6004 19.1648 13.0948 20.9 9.00039 20.9C4.90599 20.9 2.40039 19.1648 2.40039 16.7V14.9C2.40039 14.2635 2.65325 13.6531 3.10333 13.203C3.55342 12.7529 4.16387 12.5 4.80039 12.5H13.2004ZM19.2004 12.5C19.8369 12.5 20.4474 12.7529 20.8974 13.203C21.3475 13.6531 21.6004 14.2635 21.6004 14.9V15.5C21.6004 18.0068 19.7188 19.7 16.2004 19.7C16.0312 19.7 15.8644 19.6964 15.7036 19.688C16.3504 18.9356 16.7332 18.0248 16.792 16.9868L16.8004 16.7V14.9C16.8004 14.0696 16.5196 13.304 16.0468 12.6956L15.8824 12.5H19.2004ZM9.00039 2.90002C9.55194 2.90002 10.0981 3.00866 10.6077 3.21973C11.1172 3.4308 11.5802 3.74017 11.9702 4.13018C12.3602 4.52018 12.6696 4.98319 12.8807 5.49275C13.0918 6.00232 13.2004 6.54847 13.2004 7.10002C13.2004 7.65158 13.0918 8.19773 12.8807 8.7073C12.6696 9.21686 12.3602 9.67987 11.9702 10.0699C11.5802 10.4599 11.1172 10.7692 10.6077 10.9803C10.0981 11.1914 9.55194 11.3 9.00039 11.3C7.88648 11.3 6.8182 10.8575 6.03054 10.0699C5.24289 9.28222 4.80039 8.21393 4.80039 7.10002C4.80039 5.98612 5.24289 4.91783 6.03054 4.13018C6.8182 3.34252 7.88648 2.90002 9.00039 2.90002ZM17.4004 5.30002C18.196 5.30002 18.9591 5.6161 19.5217 6.1787C20.0843 6.74131 20.4004 7.50437 20.4004 8.30002C20.4004 9.09567 20.0843 9.85874 19.5217 10.4213C18.9591 10.984 18.196 11.3 17.4004 11.3C16.6047 11.3 15.8417 10.984 15.2791 10.4213C14.7165 9.85874 14.4004 9.09567 14.4004 8.30002C14.4004 7.50437 14.7165 6.74131 15.2791 6.1787C15.8417 5.6161 16.6047 5.30002 17.4004 5.30002Z"
+                        fill="#FF8E50" />
+                  </svg>
+                  Travelers
+               </h6>
+               <p class="text-sm text-lightgrey ms-7 mt-0 md:mt-1">Add Guest</p>
+            </div>
+
+            <div class="flex items-center">
+               <button
+                  class="lg:inline-block md:ms-auto py-4 px-10 bg-orange hover:bg-orange-900 text-sm text-white font-light  rounded-lg transition duration-200">Search</button>
+            </div>
+         </div>
+      </div>
+   </div>
+
+   <!-- our serve sction start from here -->
+   <div class="container mt-20 md:mt-36">
+      <div class="block md:flex justify-between item-top">
+         <div class="w-full md:w-[30%]">
+            <h6 class="text-xl font-semibold text-blue">Book Now</h6>
+            <h3 class="text-[38px] text-grey font-bold mt-3 font-merriweather">Top Value for You</h3>
+            <p class="text-xl font-normal text-lightgrey mt-2 md:mt-5">Holidays will be fun with the services we offer
+            </p>
+         </div>
+         <div class="mt-8 md:mt-0 w-full md:w-[20%]">
+            <img src="./images/choices.svg" alt="choices" width="90">
+            <h6 class="text-xl font-semibold text-grey mt-4">Lot of choices</h6>
+            <p class="text-base text-lightgrey mt-1">Total 460+ Destination that we work with</p>
+         </div>
+         <div class="mt-8 md:mt-0 w-full md:w-[20%]">
+            <img src="./images/guide.svg" alt="choices" width="90">
+            <h6 class="text-xl font-semibold text-grey mt-4">Best Guide</h6>
+            <p class="text-base text-lightgrey mt-1">out tour guide with 20+ years experience</p>
+         </div>
+         <div class="mt-8 md:mt-0 w-full md:w-[20%]">
+            <img src="./images/discount.svg" alt="choices" width="90">
+            <h6 class="text-xl font-semibold text-grey mt-4">A lot of Discount</h6>
+            <p class="text-base text-lightgrey mt-1">many discounts are offered every day</p>
+         </div>
+      </div>
+   </div>
+
+   <!-- top popular section start from here -->
+   <div class="container mt-20 md:mt-36">
+      <div>
+         <h6 class="text-xl md:text-2xl font-semibold text-blue">Top Popular</h6>
+         <h3 class="text-[38px] md:text-[42px] text-grey font-bold mt-3 font-merriweather">Our Top Popular Destinations
+         </h3>
+         <p class="text-xl md:text-2xl font-normal text-lightgrey mt-2 md:mt-5 md:w-[50%]">The following are the
+            selected tourist
+            spots
+            that
+            are in
+            great demand by our explorers</p>
+      </div>
+
+      <div class="relative">
+         <div id="toptours" class="owl-carousel owl-theme">
+            <div class="item">
+               <div class="mt-8 md:mt-14 cursor-pointer">
+                  <div class="h-[404px] relative">
+                     <img class="h-[404px] w-full object-cover rounded-3xl" src="./images/island.jpg" alt="island-top">
+                     <span
+                        class="py-2 px-6 bg-white rounded-3xl text-lg md:text-xl text-orange font-semibold absolute top-8 right-8">$220</span>
+                  </div>
+                  <div class="p-6">
+                     <h2 class="text-xl md:text-2xl font-semibold text-grey">Nusa Penida Island</h2>
+                     <p class="text-sm md:text-lg font-normal text-lightgrey mt-1">Bali, Indonesia</p>
+                     <div class="flex items-center justify-start mt-5">
+                        <div class="flex inline-flex justify-start items-center py-1 px-3 rounded-xl bg-[#FEF3C7]">
+                           <svg width="25" height="24" viewBox="0 0 25 24" fill="none"
+                              xmlns="http://www.w3.org/2000/svg">
+                              <path
+                                 d="M18.8935 14.32C18.6345 14.571 18.5155 14.934 18.5745 15.29L19.4635 20.21C19.5385 20.627 19.3625 21.049 19.0135 21.29C18.6715 21.54 18.2165 21.57 17.8435 21.37L13.4145 19.06C13.2605 18.978 13.0895 18.934 12.9145 18.929H12.6435C12.5495 18.943 12.4575 18.973 12.3735 19.019L7.94349 21.34C7.72449 21.45 7.47649 21.489 7.23349 21.45C6.64149 21.338 6.24649 20.774 6.34349 20.179L7.23349 15.259C7.29249 14.9 7.17349 14.535 6.91449 14.28L3.30349 10.78C3.00149 10.487 2.89649 10.047 3.03449 9.65C3.16849 9.254 3.51049 8.965 3.92349 8.9L8.89349 8.179C9.27149 8.14 9.60349 7.91 9.77349 7.57L11.9635 3.08C12.0155 2.98 12.0825 2.888 12.1635 2.81L12.2535 2.74C12.3005 2.688 12.3545 2.645 12.4145 2.61L12.5235 2.57L12.6935 2.5H13.1145C13.4905 2.539 13.8215 2.764 13.9945 3.1L16.2135 7.57C16.3735 7.897 16.6845 8.124 17.0435 8.179L22.0135 8.9C22.4335 8.96 22.7845 9.25 22.9235 9.65C23.0545 10.051 22.9415 10.491 22.6335 10.78L18.8935 14.32Z"
+                                 fill="#FBBF24" />
+                           </svg>
+                           <span class="text-grey text-sm md:text-base ms-1">4.6</span>
+                        </div>
+                        <div class="ms-2"><span class="text-lightgrey text-sm md:text-base font-normal">(2.5k
+                              review)</span></div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="item">
+               <div class="mt-8 md:mt-14 cursor-pointer">
+                  <div class="h-[404px] relative">
+                     <img class="h-[404px] w-full object-cover rounded-3xl" src="./images/goa.jpg" alt="goa">
+                     <span
+                        class="py-2 px-6 bg-white rounded-3xl text-lg md:text-xl text-orange font-semibold absolute top-8 right-8">$530</span>
+                  </div>
+                  <div class="p-6">
+                     <h2 class="text-xl md:text-2xl font-semibold text-grey">Merapi Mountain</h2>
+                     <p class="text-sm md:text-lg font-normal text-lightgrey mt-1">Yogyakarta, Indonesia</p>
+                     <div class="flex items-center justify-start mt-5">
+                        <div class="flex inline-flex justify-start items-center py-1 px-3 rounded-xl bg-[#FEF3C7]">
+                           <svg width="25" height="24" viewBox="0 0 25 24" fill="none"
+                              xmlns="http://www.w3.org/2000/svg">
+                              <path
+                                 d="M18.8935 14.32C18.6345 14.571 18.5155 14.934 18.5745 15.29L19.4635 20.21C19.5385 20.627 19.3625 21.049 19.0135 21.29C18.6715 21.54 18.2165 21.57 17.8435 21.37L13.4145 19.06C13.2605 18.978 13.0895 18.934 12.9145 18.929H12.6435C12.5495 18.943 12.4575 18.973 12.3735 19.019L7.94349 21.34C7.72449 21.45 7.47649 21.489 7.23349 21.45C6.64149 21.338 6.24649 20.774 6.34349 20.179L7.23349 15.259C7.29249 14.9 7.17349 14.535 6.91449 14.28L3.30349 10.78C3.00149 10.487 2.89649 10.047 3.03449 9.65C3.16849 9.254 3.51049 8.965 3.92349 8.9L8.89349 8.179C9.27149 8.14 9.60349 7.91 9.77349 7.57L11.9635 3.08C12.0155 2.98 12.0825 2.888 12.1635 2.81L12.2535 2.74C12.3005 2.688 12.3545 2.645 12.4145 2.61L12.5235 2.57L12.6935 2.5H13.1145C13.4905 2.539 13.8215 2.764 13.9945 3.1L16.2135 7.57C16.3735 7.897 16.6845 8.124 17.0435 8.179L22.0135 8.9C22.4335 8.96 22.7845 9.25 22.9235 9.65C23.0545 10.051 22.9415 10.491 22.6335 10.78L18.8935 14.32Z"
+                                 fill="#FBBF24" />
+                           </svg>
+                           <span class="text-grey text-sm md:text-base ms-1">4.6</span>
+                        </div>
+                        <div class="ms-2"><span class="text-lightgrey text-sm md:text-base font-normal">(2.5k
+                              review)</span></div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="item">
+               <div class="mt-8 md:mt-14 cursor-pointer">
+                  <div class="h-[404px] relative">
+                     <img class="h-[404px] w-full object-cover rounded-3xl" src="./images/dubai.jpg" alt="dubai-top">
+                     <span
+                        class="py-2 px-6 bg-white rounded-3xl text-lg md:text-xl text-orange font-semibold absolute top-8 right-8">$440</span>
+                  </div>
+                  <div class="p-6">
+                     <h2 class="text-xl md:text-2xl font-semibold text-grey">Raja Ampat</h2>
+                     <p class="text-sm md:text-lg font-normal text-lightgrey mt-1">Papua, Indonesia</p>
+                     <div class="flex items-center justify-start mt-5">
+                        <div class="flex inline-flex justify-start items-center py-1 px-3 rounded-xl bg-[#FEF3C7]">
+                           <svg width="25" height="24" viewBox="0 0 25 24" fill="none"
+                              xmlns="http://www.w3.org/2000/svg">
+                              <path
+                                 d="M18.8935 14.32C18.6345 14.571 18.5155 14.934 18.5745 15.29L19.4635 20.21C19.5385 20.627 19.3625 21.049 19.0135 21.29C18.6715 21.54 18.2165 21.57 17.8435 21.37L13.4145 19.06C13.2605 18.978 13.0895 18.934 12.9145 18.929H12.6435C12.5495 18.943 12.4575 18.973 12.3735 19.019L7.94349 21.34C7.72449 21.45 7.47649 21.489 7.23349 21.45C6.64149 21.338 6.24649 20.774 6.34349 20.179L7.23349 15.259C7.29249 14.9 7.17349 14.535 6.91449 14.28L3.30349 10.78C3.00149 10.487 2.89649 10.047 3.03449 9.65C3.16849 9.254 3.51049 8.965 3.92349 8.9L8.89349 8.179C9.27149 8.14 9.60349 7.91 9.77349 7.57L11.9635 3.08C12.0155 2.98 12.0825 2.888 12.1635 2.81L12.2535 2.74C12.3005 2.688 12.3545 2.645 12.4145 2.61L12.5235 2.57L12.6935 2.5H13.1145C13.4905 2.539 13.8215 2.764 13.9945 3.1L16.2135 7.57C16.3735 7.897 16.6845 8.124 17.0435 8.179L22.0135 8.9C22.4335 8.96 22.7845 9.25 22.9235 9.65C23.0545 10.051 22.9415 10.491 22.6335 10.78L18.8935 14.32Z"
+                                 fill="#FBBF24" />
+                           </svg>
+                           <span class="text-grey text-sm md:text-base ms-1">4.6</span>
+                        </div>
+                        <div class="ms-2"><span class="text-lightgrey text-sm md:text-base font-normal">(2.5k
+                              review)</span></div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="item">
+               <div class="mt-8 md:mt-14 cursor-pointer">
+                  <div class="h-[404px] relative">
+                     <img class="h-[404px] w-full object-cover rounded-3xl" src="./images/island.jpg" alt="island-top">
+                     <span
+                        class="py-2 px-6 bg-white rounded-3xl text-lg md:text-xl text-orange font-semibold absolute top-8 right-8">$220</span>
+                  </div>
+                  <div class="p-6">
+                     <h2 class="text-xl md:text-2xl font-semibold text-grey">Nusa Penida Island</h2>
+                     <p class="text-sm md:text-lg font-normal text-lightgrey mt-1">Bali, Indonesia</p>
+                     <div class="flex items-center justify-start mt-5">
+                        <div class="flex inline-flex justify-start items-center py-1 px-3 rounded-xl bg-[#FEF3C7]">
+                           <svg width="25" height="24" viewBox="0 0 25 24" fill="none"
+                              xmlns="http://www.w3.org/2000/svg">
+                              <path
+                                 d="M18.8935 14.32C18.6345 14.571 18.5155 14.934 18.5745 15.29L19.4635 20.21C19.5385 20.627 19.3625 21.049 19.0135 21.29C18.6715 21.54 18.2165 21.57 17.8435 21.37L13.4145 19.06C13.2605 18.978 13.0895 18.934 12.9145 18.929H12.6435C12.5495 18.943 12.4575 18.973 12.3735 19.019L7.94349 21.34C7.72449 21.45 7.47649 21.489 7.23349 21.45C6.64149 21.338 6.24649 20.774 6.34349 20.179L7.23349 15.259C7.29249 14.9 7.17349 14.535 6.91449 14.28L3.30349 10.78C3.00149 10.487 2.89649 10.047 3.03449 9.65C3.16849 9.254 3.51049 8.965 3.92349 8.9L8.89349 8.179C9.27149 8.14 9.60349 7.91 9.77349 7.57L11.9635 3.08C12.0155 2.98 12.0825 2.888 12.1635 2.81L12.2535 2.74C12.3005 2.688 12.3545 2.645 12.4145 2.61L12.5235 2.57L12.6935 2.5H13.1145C13.4905 2.539 13.8215 2.764 13.9945 3.1L16.2135 7.57C16.3735 7.897 16.6845 8.124 17.0435 8.179L22.0135 8.9C22.4335 8.96 22.7845 9.25 22.9235 9.65C23.0545 10.051 22.9415 10.491 22.6335 10.78L18.8935 14.32Z"
+                                 fill="#FBBF24" />
+                           </svg>
+                           <span class="text-grey text-sm md:text-base ms-1">4.6</span>
+                        </div>
+                        <div class="ms-2"><span class="text-lightgrey text-sm md:text-base font-normal">(2.5k
+                              review)</span></div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+
+   <!-- our experience  -->
+   <div class="container mt-20 md:mt-36">
+      <div class="grid grid-cols-1 gap-10 md:gap-20 md:grid-cols-2">
+         <div>
+            <img class="w-full" src="./images/experience.png" alt="our_experience">
+         </div>
+         <div class="flex items-center justify-start">
+            <div>
+               <h6 class="text-xl md:text-2xl font-semibold text-blue">Our Experience</h6>
+               <h3 class="text-[38px] md:text-[42px] text-grey font-bold mt-3 font-merriweather">with some experience,
+                  we can help you
+               </h3>
+               <p class="text-xl md:text-2xl font-normal text-lightgrey mt-2 md:mt-5 w-[90%] leading-9">since we first
+                  opened,
+                  we have
+                  helped several
+                  tourists find the best tourist destinations with low prices and an easy process</p>
+
+               <div class="flex justify-start items-top mt-6 md:mt-12">
+                  <div class="me-10">
+                     <h4 class="text-orange font-bold text-3xl md:text-4xl">20</h4>
+                     <p class="text-base md:text-lg font-normal text-lightgrey mt-2">Years <br>Experience</p>
+                  </div>
+
+                  <div class="me-10">
+                     <h4 class="text-orange font-bold text-3xl md:text-4xl">460+</h4>
+                     <p class="text-base md:text-lg font-normal text-lightgrey mt-2">Destination <br>Collaboration</p>
+                  </div>
+
+                  <div class="me-10">
+                     <h4 class="text-orange font-bold text-3xl md:text-4xl">80K</h4>
+                     <p class="text-base md:text-lg font-normal text-lightgrey mt-2">Happy <br> Customer</p>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+
+   <!-- testimonial -->
+   <div class="py-12 md:py-24 mt-20 md:mt-36 bg-[#fafafa]">
+      <div class="container">
+         <div class="text-center">
+            <h6 class="text-xl md:text-2xl font-semibold text-blue">Testimonial</h6>
+            <h3 class="text-[38px] md:text-[42px] text-grey font-bold mt-3 font-merriweather">What Our Customer Say
+               About
+               Us
+            </h3>
+            <p class="text-xl md:text-2xl font-normal text-lightgrey mt-5 mx-auto w-full md:w-[50%] leading-9">more than
+               thousands
+               of people
+               have given us the best reviews
+            </p>
+         </div>
+         <div
+            class="py-10 md:py-0 md:min-h-[576px] bg-[url('./images/testimonial-back.png')] bg-center bg-cover bg-no-repeat mt-12 flex justify-center items-center relative">
+            <div
+               class="py-8 md:py-14 px-12 md:px-20 bg-[#ffffff52] md:bg-white rounded-3xl shadow-xl shadow-grey-100 w-[90%] md:w-[600px] text-center">
+               <img class="mx-auto" src="./images/quotes.svg" alt="quotes">
+               <div id="testimonials" class="owl-carousel owl-theme">
+                  <div class="item">
+                     <p class="cursor-pointer mt-10 text-xl text-lightgrey font-normal leading-8">I am very happy with
+                        Travline service, it helps me find very beautiful tourist destinations
+                     </p>
+                     <img style="width: 128px !important" class="mx-auto mt-4" src="./images/fivestar.svg"
+                        alt="five-star">
+                     <p class="text-grey font-semibold mt-4 text-xl">Jonatan Marqui</p>
+                     <span class="text-xs text-lightgrey mt-1">Food Bloger</span>
+                  </div>
+                  <div class="item">
+                     <p class="cursor-pointer mt-10 text-xl text-lightgrey font-normal leading-8">I am very happy with
+                        Travline service, it helps me find very beautiful tourist destinations
+                     </p>
+                     <img style="width: 128px !important" class="mx-auto mt-4" src="./images/fivestar.svg"
+                        alt="five-star">
+                     <p class="text-grey font-semibold mt-4 text-xl">Jonatan Marqui</p>
+                     <span class="text-xs text-lightgrey mt-1">Food Bloger</span>
+                  </div>
+               </div>
+
+            </div>
+            <img class="hidden md:block absolute top-[-11%] right-0" src="./images/person-one.svg" alt="person-one">
+            <img class="hidden md:block absolute bottom-[34%] right-[10%]" src="./images/person-two.svg"
+               alt="person-one">
+            <img class="hidden md:block absolute bottom-[0%] left-[16%]" src="./images/person-three.svg"
+               alt="person-one">
+            <img class="hidden md:block absolute top-[18%] left-[12%]" src="./images/person-four.svg" alt="person-one">
+            <img class="hidden md:block absolute top-[-7%] left-[48%]" src="./images/person-five.svg" alt="person-one">
+         </div>
+      </div>
+   </div>
+
+
+   <!-- gallery -->
+   <div class="container mt-20 md:mt-36">
+      <div class="text-center">
+         <h6 class="text-xl md:text-2xl font-semibold text-blue">Our Gallery</h6>
+         <h3 class="text-[38px] md:text-[42px] text-grey font-bold mt-3 font-merriweather">Happy Moments Collection
+         </h3>
+         <p class="text-xl md:text-2xl font-normal text-lightgrey mt-5 mx-auto w-full md:w-[50%] leading-9">create your
+            happiness
+            by visiting
+            your dream destination
+         </p>
+      </div>
+      <div class="mt-8 md:mt-16 grid grid-cols-2 md:grid-cols-3 gap-6">
+         <div class="grid gap-6">
+            <div>
+               <img class="h-auto max-w-full rounded-lg" src="./images/g1.jpg" alt="manali">
+            </div>
+            <div>
+               <img class="h-auto max-w-full rounded-lg" src="./images/g4.jpg" alt="barot">
+            </div>
+            <div>
+               <img class="h-auto max-w-full rounded-lg" src="./images/g7.jpg" alt="whole-things">
+            </div>
+         </div>
+         <div class="grid gap-6">
+            <div>
+               <img class="h-auto max-w-full rounded-lg" src="./images/g2.jpg" alt="kasol">
+            </div>
+            <div>
+               <img class="h-auto max-w-full rounded-lg" src="./images/g5.jpg" alt="paragliding">
+            </div>
+            <div>
+               <img class="h-auto max-w-full rounded-lg" src="./images/g8.jpg" alt="malana">
+            </div>
+         </div>
+         <div class="hidden md:grid gap-6">
+            <div>
+               <img class="h-auto max-w-full rounded-lg" src="./images/g3.jpg" alt="tosh">
+            </div>
+            <div>
+               <img class="h-auto max-w-full rounded-lg" src="./images/g6.jpg" alt="chopta">
+            </div>
+            <div>
+               <img class="h-auto max-w-full rounded-lg" src="./images/g9.jpg" alt="leh">
+            </div>
+         </div>
+      </div>
+
+   </div>
+
+
+   <!-- footer-->
+   <footer class="mt-20 md:mt-36">
+
+   </footer>
+
+
+
+
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+
+   <script>
+      $('#toptours').owlCarousel({
+         loop: true,
+         nav: true,
+         margin: 40,
+         responsiveClass: true,
+         responsive: {
+            0: {
+               items: 1,
+               nav: true
+            },
+            600: {
+               items: 2,
+               nav: false
+            },
+            1000: {
+               items: 3,
+               nav: true,
+            }
+         }
+      })
+
+      $('#testimonials').owlCarousel({
+         loop: true,
+         nav: true,
+         margin: 40,
+         responsiveClass: true,
+         autoplay: true,
+         autoplayTimeout: 2000,
+         autoplayHoverPause: true,
+         responsive: {
+            0: {
+               items: 1,
+               nav: true
+            },
+            600: {
+               items: 1,
+               nav: false
+            },
+            1000: {
+               items: 1,
+               nav: false,
+            }
+         }
+      })
+   </script>
+
+</body>
+
+</html>
