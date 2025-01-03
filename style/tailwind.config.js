@@ -4,7 +4,7 @@ tailwind.config = {
          'orange': '#263A29',
          'blue': '#41644A',
          'grey': '#1F2937',
-         'lightgrey': '#9CA3AF',
+         'lightgrey': '#424242',
          'white': '#ffffff'
       },
       fontFamily: {
