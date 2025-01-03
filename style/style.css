@@ -56,3 +56,9 @@
     background-color: #FF8E50 !important;
   }
 }
+
+a:focus-visible, button:focus-visible, input:focus-visible {
+  outline: .125rem dashed #171c1f;
+  outline-offset: 4px;
+  border-radius: 1px;
+}
