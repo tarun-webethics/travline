@@ -19,11 +19,11 @@
   width: 50px;
   height: 50px;
   border-radius: 50% !important;
-  background-color: #e4e4e4 !important;
+  background-color: #969696 !important;
   transition: .4s ease-in-out !important;
 }
 .owl-nav button:hover{
-  background-color: #FF8E50 !important;
+  background-color: #ff7e38 !important;
   transition: .4s ease-in-out !important;
 }
 .owl-nav span {
